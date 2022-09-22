@@ -26,28 +26,32 @@ addEventListener("resize", (e) => {
 // hacking effect of the text onload
 addEventListener("DOMContentLoaded", () => {
   let elm = document.getElementById("random-effect");
-  let text = elm.innerText.split("");
+  let text = elm.innerHTML.split("");
   let randomText =
-    "abcdefghijklmnopqrstuvwxyzABCDEFGHIKLMN OPQRSTUVWXYZ0123456789!@#$%^&*()_+".split(
-      ""
-    );
+    "abcdefghijklmnopqrstuvwxyzDFGHILM OPQRSTUVW456789!@#$%^*()_+'\"".split("");
   let len = randomText.length;
   elm.innerHTML = "";
   for (let i = 0; i < text.length; i++) {
     elm.innerHTML += randomText[random(0, len)];
+    console.log(randomText[random(0, len)]);
   }
-  text.forEach((t) => console.log(t));
   // index of text
   let i = 0;
   let randomId = 0;
-  // let intervalID = setInterval(() => {
-
-  //   if (i >= text.length) clearInterval(intervalID);
-  //   else if (randomId >= len) {
-  //     randomId = 0;
-  //     i++;
-  //   } else randomId++;
-  // }, 100);
+  let intervalID = setInterval(() => {
+    let arr = elm.innerHTML.split("");
+    arr[i] = randomText[randomId];
+    elm.innerHTML = arr.join("");
+    if (arr[i] == text[i]) {
+      randomId = 0;
+      i++;
+    }
+    if (i >= text.length) clearInterval(intervalID);
+    else if (randomId >= len) {
+      randomId = 0;
+      i++;
+    } else randomId++;
+  }, 1);
 });
 function random(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
