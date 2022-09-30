@@ -94,6 +94,20 @@ const skills = [
     color: "blueviolet",
   },
   {
+    title: "UI/UX Design",
+    level: "Intermediate",
+    percent: 65,
+    icon: "fa fa-laptop-code",
+    color: "blueviolet",
+  },
+  {
+    title: "Linux",
+    level: "Intermediate",
+    percent: 55,
+    icon: "fab fa-linux",
+    color: "blueviolet",
+  },
+  {
     title: "PHP",
     level: "Intermediate",
     percent: 65,
@@ -126,7 +140,7 @@ function skillTemplate({ icon, title, level, percent, color }) {
       </div>
   `;
 }
-(function () {
+addEventListener("DOMContentLoaded", function () {
   skills.forEach((skill) => {
     skillElm.innerHTML += skillTemplate(skill);
   });
@@ -134,4 +148,4 @@ function skillTemplate({ icon, title, level, percent, color }) {
   <div class="more">
     <a href="#" class="read-btn">Read More</a>
   </div>`;
-})();
+});
