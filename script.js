@@ -19,10 +19,10 @@ const hiddenElements = document.querySelectorAll(".hidden");
 observer.observe(document.querySelector("main div.center"));
 
 // testing and dev works
-addEventListener("resize", (e) => {
-  if (innerWidth > 770) navElm.style.display = "flex";
-  else navElm.style.display = "none";
-});
+// addEventListener("resize", (e) => {
+//   if (innerWidth > 770) navElm.style.display = "flex";
+//   else navElm.style.display = "none";
+// });
 
 // hacking effect of the text onload
 addEventListener("DOMContentLoaded", () => {
@@ -105,7 +105,7 @@ const skills = [
     level: "Intermediate",
     percent: 55,
     icon: "fab fa-linux",
-    color: "blueviolet",
+    color: "black",
   },
   {
     title: "PHP",
