@@ -3,7 +3,6 @@ const navElm = document.querySelector("nav.menu");
 const mediaQueryWidth = 770;
 // Menu bar toggle display on small devices
 function toggleMenu() {
-  console.log("hello");
   if (getComputedStyle(navElm).display == "none") navElm.style.display = "flex";
   else navElm.style.display = "none";
 }
@@ -15,9 +14,42 @@ function toggleMenu() {
 //     else entry.target.classList.remove("show");
 //   });
 // });
-// const hiddenElements = document.querySelectorAll(".hidden");
-// observer.observe(document.querySelector("main div.center"));
 
+let whoamiElm = document.querySelector("section.whoami");
+let h2 = whoamiElm.querySelector("h2");
+let p = whoamiElm.querySelector("p");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        animateWhoami(h2);
+        setTimeout(() => {
+          animateWhoami(p);
+        }, 1000);
+      }, 500);
+    }
+  });
+});
+observer.observe(whoamiElm);
+
+function animateWhoami(elm) {
+  let elmText = elm.getAttribute("data-text");
+  elm.innerHTML = "";
+  let i = 0;
+  let frame = 0;
+  console.log(elmText);
+  function animate() {
+    if (i <= elmText.length) requestAnimationFrame(animate);
+    else elm.innerHTML = elmText;
+    if (frame % 4 == 0) {
+      elm.innerHTML = elmText.substr(0, i) + `<i class="cursor"></i>`;
+      i++;
+    }
+    frame++;
+  }
+  animate();
+}
 // testing and dev works
 // addEventListener("resize", (e) => {
 //   if (innerWidth > 770) navElm.style.display = "flex";
