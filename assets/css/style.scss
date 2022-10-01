@@ -287,10 +287,11 @@ section.services {
   min-height: 100vh;
   @extend .flex-around;
   flex-wrap: wrap;
-  background: white;
+
   div.service {
     width: 260px;
     height: 300px;
+    background: white;
     @extend .flex-center;
     flex-direction: column;
     box-shadow: $box-shadow;
