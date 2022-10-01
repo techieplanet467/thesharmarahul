@@ -121,6 +121,13 @@ const skills = [
     icon: "fab fa-python",
     color: "#306998",
   },
+  {
+    title: "SCSS",
+    level: "Intermediate",
+    percent: 60,
+    icon: "fab fa-sass",
+    color: "#c69",
+  },
 ];
 const skillElm = document.querySelector("section.skills");
 function skillTemplate({ icon, title, level, percent, color }) {
