@@ -9,14 +9,14 @@ function toggleMenu() {
 }
 
 // Scroll animation
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add("show");
-    else entry.target.classList.remove("show");
-  });
-});
-const hiddenElements = document.querySelectorAll(".hidden");
-observer.observe(document.querySelector("main div.center"));
+// const observer = new IntersectionObserver((entries) => {
+//   entries.forEach((entry) => {
+//     if (entry.isIntersecting) entry.target.classList.add("show");
+//     else entry.target.classList.remove("show");
+//   });
+// });
+// const hiddenElements = document.querySelectorAll(".hidden");
+// observer.observe(document.querySelector("main div.center"));
 
 // testing and dev works
 // addEventListener("resize", (e) => {
